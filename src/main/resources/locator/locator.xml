@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<Locators>
+
+	<elementName name= "userEmail">
+	<locator>//div/form/div/input[contains(@type, 'text')]</locator>
+	</elementName>
+	
+	<elementName name= "userPassword">
+	<locator>//div/form/div/input[contains(@type, 'password')]</locator>
+	</elementName>
+	
+	<elementName name= "loginButton">
+	<locator>//div/form/div[@class='_1D1L_j']/button[contains(@type, 'submit')]</locator>
+	</elementName>
+	
+	<elementName name= "userName">
+	<locator>//div[@class='go_DOp'][1]//div[@class='exehdJ']</locator>
+	</elementName>
+	
+	<elementName name= "myProfileLink">
+	<locator>//li/a/div[contains(text(), 'My Profile')]</locator>
+	</elementName>
+
+	<elementName name= "myName">
+	<locator>div._1ruvv2</locator>
+	</elementName>
+	
+	</Locators>

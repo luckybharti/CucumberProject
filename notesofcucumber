@@ -1,0 +1,64 @@
+Feature File:
+	
+	Feature file are document that contain gherkin Scenario and Requirement. Each Scenario act as test case.
+	
+	* It should be declarative(only specifying what needs to be accomplished)
+	
+	* Avoid UI action steps
+	
+	* Avoid conjunctive steps 	
+			Sticking to one action per step more modular and reusable.
+			conciseness, scenario titles should focus on what the behavior is.
+			 The why can either be deduced from the steps or made plain with comments.
+	
+	* Use Background
+		to use the same step at the beginning of all scenarios of a feature
+	
+	* Limit the number of scenario per feature.
+	
+	* Limit the number of steps per scenario
+	
+	* Avoid gigantic table
+	
+	* Scenario should be short or sweet.
+	 
+	* write scenarios defensively so that changes in the underlying data do not cause test runs to fail
+	
+	* 1.Given-When-Then steps must appear in order and cannot repeat. 
+	  2.Any single When-Then pair denotes an individual behavior. 
+	  3.One scenario covers one behavior.	
+	  
+	* Avoid assertion language.  
+			
+	*  Givens set up initial state, Whens perform an action, and Then verify outcomes.
+	
+StepDefination:
+
+	A step definition is a code block that implements the logic to execute a Scenario step.
+	
+Runner Class:
+
+	* class use to execute the feature file n step definition class
+	
+	* @RunWith() - to tells the JUnit that test should run using Cucumber class.
+	
+	* @CucumberOption - This class just needs annotations to understand that cucumber features would
+	  be run through it and you can specify feature files to be picked up plus the steps package location
+	  		
+	  		Cucumber Options are:
+	  			
+	  		features: set the paths of the feature file
+	  		dryRun: Check if all the steps have the Step definition(by default value false)
+	  		glues: set The path of step definition file
+	  		tags: What tags in the feature file should be executed
+			monochrome: Display the console output in much readable way(by default value false)
+			format: What all report format to use
+			Strict: Will fail execution if there are undefined or pending steps.(by default value false)	
+			
+Hooks in cucumber:
+
+			  		
+	  			
+	  			
+	  
+	  
