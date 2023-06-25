@@ -1,62 +1,37 @@
 package com.flipkartDemo.base;
 
-import java.time.Duration;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.HashMap;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.CapabilityType;
 
-import com.flipkartDemo.AppDriver.AppDriver;
+public class BaseClass{
+	
+	public WebDriver driver;
+	public String chromeDriverPath="C:\\Users\\Lenovo\\Desktop\\lucky\\CucumberProject\\src\\main\\resources\\Driver\\chromedriver.exe";	
+	public String applicationURL ="https://www.flipkart.com/";
+	
+//	public BaseClass() {
+//		intialization();
+//	}
 
-public class BaseClass extends AppDriver{
- 
-	WebDriver driver = appDriverSetup();
-	public void windowHandles() {
-		String mainWindow =driver.getWindowHandle();
-		Set<String> s1 = driver.getWindowHandles();
-		Iterator<String> it = s1.iterator();
-		
-		while(it.hasNext()) {
-			
-			String childWindow = it.next();
-			if(!mainWindow.equalsIgnoreCase(childWindow)) {
-				driver.switchTo().window(childWindow);
-			}
-		}
-		
-		}
 
-	public void mouseHovering(WebElement element){
-		try {
-			Actions ac = new Actions(driver);
-			Action mousehover=ac.moveToElement(element).build();
-			mousehover.perform();
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+	public void intialization() {
+	System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+	ChromeOptions options = new ChromeOptions();
+    options.addArguments("--remote-allow-origins=*");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");	
+	driver = new ChromeDriver(options);
+	driver.get(applicationURL);
+	
 	}
-	
-		public WebElement getWhenVisible(By locator, int time){
-		WebElement element = null;
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
-		element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator)); 
-		return element ;
-	}
-	
-	public WebElement locateElement(By locator) {
-		WebElement element =null;
-		element =driver.findElement(locator);
-		return element;
-	}
+
 	
 	
+	
+
 }
